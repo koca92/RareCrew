@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model List<Employee>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<div>
+    <style>
+        tbody, td, tfoot, th, thead, tr {
+            border:inset;
+            border-width:5px;
+            border-color:black;
+            border-style:double;
+        }
+    </style>
+    <table>
+    @foreach(Employee i in Model)
+    {
+        @if(i.Hours < 100)
+        {
+            <tr style="background-color:red">
+                <td>@Html.DisplayFor(model => i.Name)</td>
+                <td>@Html.DisplayFor(model => i.Hours)</td>
+            </tr>
+        }
+        else
+        {
+            <tr>
+                <td>@Html.DisplayFor(model => i.Name)</td>
+                <td>@Html.DisplayFor(model => i.Hours)</td>
+            </tr> 
+        }
+    }
+    </table>
+</div>
